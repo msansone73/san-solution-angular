@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class LoginComponent {
 
-   usuario:Usuario = {email:'msansone@email.com', pass:'123',nome:'', autenticado:false}
+   usuario:Usuario = {email:'msansone@email.com', pass:'123',name:'', autenticado:false}
 
 
   constructor(
@@ -24,19 +24,6 @@ export class LoginComponent {
     this.loginService.logar(this.usuario.email,
       this.usuario.pass)
 
-    /*
-    this.loginService.logar(this.usuario.email,
-      this.usuario.pass).subscribe({
-        next: (v)=>{
-          this.usuario=v
-          this.router.navigate(['/'])
-          this.loginService.mostrarMenuEmitter.emit(true)
-        },
-        error: (e)=> console.log(e),
-        complete: () => console.log('Atualizado')
-
-    })
-*/
   }
 
 }

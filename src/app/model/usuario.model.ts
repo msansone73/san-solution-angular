@@ -2,7 +2,7 @@ export class Usuario {
 
    email!: string
    pass!: string
-   nome!:string
+   name!:string
    autenticado=false
 
 }

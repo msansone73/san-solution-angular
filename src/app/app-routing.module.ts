@@ -5,8 +5,10 @@ import { LoginComponent } from './view/login/login.component';
 import { LoginGuard } from './guard/LoginGuard';
 
 const routes: Routes = [
+  {path: 'home', component:HomeComponent, canActivate: [LoginGuard]},
+  {path: '', component:HomeComponent, canActivate: [LoginGuard]},
   {path: 'login', component: LoginComponent},
-  {path: '', component:HomeComponent, canActivate: [LoginGuard]}
+
 ];
 
 @NgModule({

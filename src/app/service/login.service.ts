@@ -1,6 +1,8 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -14,7 +16,8 @@ export class LoginService {
   public mostrarMenuEmitter =
     new EventEmitter<boolean>()
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private router:Router) { }
 
 
   logar( email:string, pass:string){
@@ -23,15 +26,15 @@ export class LoginService {
     //return oLogar;
 
     oLogar.subscribe({
-      next: (v)=>{
-        console.log(v)
-        console.log('nome='+v.nome)
+      next: (u)=>{
+        this.usuario=u
+        this.mostrarMenuEmitter.emit(true)
+        this.router.navigate(['/'])
       },
       error: (e)=> console.log(e),
       complete: () => console.log('Atualizado')
 
   })
-
 
   }
 
@@ -39,9 +42,13 @@ export class LoginService {
     return this.usuario
   }
 
+  setUsuario(u:Usuario){
+    this.usuario=u
+  }
+
   getIsLoged():boolean{
-    console.log('this.usuario.nome='+this.usuario.nome)
-    return this.usuario.nome!=undefined
+    console.log('this.usuario.nome='+this.usuario.name)
+    return this.usuario.name!=undefined
   }
 
 }
