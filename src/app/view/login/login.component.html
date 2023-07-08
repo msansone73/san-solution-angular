@@ -1,0 +1,22 @@
+<div>
+  <div class="container w-50 top-50">
+    <div class="mb-3 row">
+      <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="usuario.email" type="text" id="email" class="form-control-plaintext">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input [(ngModel)]="usuario.pass" id="pass" type="password" class="form-control">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <div class="col-sm-10">
+        <button  class="btn btn-primary" (click)="fazerLogin()"> Login</button>
+      </div>
+    </div>
+
+  </div>
+</div>
