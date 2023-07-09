@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 })
 export class LoginService {
 
-  apiUrl= "http://localhost:8080/api/security/login"
+  //apiUrl= "http://localhost:8080/api/security/login"
+  apiUrl= "https://msansone.com.br/api/security/login"
+  
   private usuario:Usuario = new Usuario()
 
   public mostrarMenuEmitter =

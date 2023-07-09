@@ -16,6 +16,7 @@ export class SecInterceptor implements HttpInterceptor{
         .append("Access-Control-Allow-Headers", "*")
         .append("Access-Control-Allow-Credentials", 'true')
         .append("Access-Control-Max-Age", '1800')
+        .append("withCredentials", 'true')
         .append("Authorization", 'Basic ' + window.btoa('admin:Batata'))
 
       })

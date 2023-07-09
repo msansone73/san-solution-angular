@@ -11,13 +11,15 @@ import { LoginService } from './service/login.service';
 import { FormsModule } from '@angular/forms';
 import { LoginGuard } from './guard/LoginGuard';
 import { SecInterceptor } from './guard/SecInterceptor';
+import { UsersListComponent } from './view/users/users-list/users-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
