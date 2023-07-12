@@ -11,12 +11,10 @@ export class SecInterceptor implements HttpInterceptor{
     if (1==1){
       const cloned = req.clone({
          headers: req.headers.set('Content-Type', 'application/json')
-        .append('Access-Control-Allow-Origin', '**')
-        .append("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS")
-        .append("Access-Control-Allow-Headers", "*")
-        .append("Access-Control-Allow-Credentials", 'true')
-        .append("Access-Control-Max-Age", '1800')
-        .append("withCredentials", 'true')
+        //.append('Access-Control-Allow-Origin', '*')
+        //.append("Access-Control-Allow-Methods", "GET,POST,DELETE,PUT,OPTIONS")
+        //.append("Access-Control-Allow-Headers", "*")
+        //.append("Access-Control-Max-Age", '1800')
         .append("Authorization", 'Basic ' + window.btoa('admin:Batata'))
 
       })
