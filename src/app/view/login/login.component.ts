@@ -10,7 +10,7 @@ import { LoginService } from 'src/app/service/login.service';
 })
 export class LoginComponent {
 
-   usuario:Usuario = {email:'msansone@email.com', pass:'123',name:'', autenticado:false}
+   usuario:Usuario = {id: -1,email:'msansone@email.com', pass:'123',name:'', autenticado:false}
 
 
   constructor(
