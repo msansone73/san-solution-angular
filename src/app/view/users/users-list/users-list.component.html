@@ -13,7 +13,8 @@
         <th scope="row">{{usuario.id}}</th>
         <td>{{usuario.name}}</td>
         <td>{{usuario.email}}</td>
-        <td></td>
+        <td><button type="btn">Editar</button></td>
+        <td><button type="button" (click)="eliminar(usuario.id)">Delete</button></td>
       </tr>
     </tbody>
   </table>

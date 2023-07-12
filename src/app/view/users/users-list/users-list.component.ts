@@ -15,10 +15,27 @@ export class UsersListComponent implements OnInit {
     private loginService: LoginService
   ){}
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  private loadUsers(){
     this.loginService.getAllUsers()
     .subscribe(
       data  => this.usuarios=data
-    )  }
+    )
+  }
 
+  edit(id: number) {
+
+  }
+
+
+  eliminar(id: number) {
+    this.loginService.eliminarUser(id)
+      .subscribe({
+        next: () => this.loadUsers()
+      }
+    )
+  }
 
 }
