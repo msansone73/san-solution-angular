@@ -42,6 +42,11 @@ export class LoginService {
     return this.httpClient.get<Usuario[]>(this.apiUrl+"/api/security")
   }
 
+eliminarUser(id: number):Observable<any>{
+  return this.httpClient.delete(this.apiUrl + "/api/security/users/" + id);
+}
+
+
   getUsuario():Usuario{
     return this.usuario
   }
