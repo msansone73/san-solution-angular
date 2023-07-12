@@ -1,18 +1,17 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { Usuario } from '../model/usuario.model';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-
+import { environment } from './../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  //apiUrl= "http://localhost:8080/api/security/login"
-  apiUrl= "https://msansone.com.br/api/security/login"
-  
+  apiUrl= environment.apiUrl
+
   private usuario:Usuario = new Usuario()
 
   public mostrarMenuEmitter =
@@ -24,8 +23,8 @@ export class LoginService {
 
   logar( email:string, pass:string){
 
-    const oLogar= this.httpClient.post<Usuario>(this.apiUrl,{"email":email,"pass":pass})
-    //return oLogar;
+    console.log(this.apiUrl)
+    const oLogar= this.httpClient.post<Usuario>(this.apiUrl+"/api/security/login",{"email":email,"pass":pass})
 
     oLogar.subscribe({
       next: (u)=>{
@@ -36,8 +35,11 @@ export class LoginService {
       error: (e)=> console.log(e),
       complete: () => console.log('Atualizado')
 
-  })
+    })
+  }
 
+  getAllUsers():Observable<Usuario[]>{
+    return this.httpClient.get<Usuario[]>(this.apiUrl+"/api/security")
   }
 
   getUsuario():Usuario{
